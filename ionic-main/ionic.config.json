@@ -1,0 +1,7 @@
+{
+  "name": "sistemas-mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

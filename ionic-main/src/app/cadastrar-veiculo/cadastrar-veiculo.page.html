@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+   </ion-buttons>
+    <ion-title>Cadastrar veículo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+
+
+  <ion-list>
+    <ion-item>
+      <ion-select label="Marca" placeholder="[Selecione]" [(ngModel)]="instancia.marca">
+        <ion-select-option [value]="1">AUDI</ion-select-option>
+        <ion-select-option [value]="2">BMW</ion-select-option>
+        <ion-select-option [value]="3">CHEVROLET - GM</ion-select-option>
+        <ion-select-option [value]="4">FERRARI</ion-select-option>
+        <ion-select-option [value]="5">FIAT</ion-select-option>
+        <ion-select-option [value]="6">FORD</ion-select-option>
+        <ion-select-option [value]="7">HONDA</ion-select-option>
+        <ion-select-option [value]="8">HYUNDAI</ion-select-option>
+        <ion-select-option [value]="9">VOLKSWAGEN</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" label="Modelo" [(ngModel)]="instancia.modelo" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="number" label="Ano" [(ngModel)]="instancia.ano" min="1900"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Cor" placeholder="[Selecione]" [(ngModel)]="instancia.cor">
+        <ion-select-option [value]="1">BRANCO</ion-select-option>
+        <ion-select-option [value]="2">AMARELO</ion-select-option>
+        <ion-select-option [value]="3">AZUL</ion-select-option>
+        <ion-select-option [value]="4">PRATA</ion-select-option>
+        <ion-select-option [value]="5">PRETO</ion-select-option>
+        <ion-select-option [value]="6">VERMELHO</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Combustível" placeholder="[Selecione]" [(ngModel)]="instancia.combustivel">
+        <ion-select-option [value]="1">ETANOL</ion-select-option>
+        <ion-select-option [value]="2">DIESEL</ion-select-option>
+        <ion-select-option [value]="3">FLEX</ion-select-option>
+        <ion-select-option [value]="4">GASOLINA</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <ion-img *ngIf="!instancia.foto" src="../../assets/imgs/thumbnail.svg" (click)="adicionarFoto()"></ion-img>
+        <ion-img *ngIf="instancia.foto" [src]="instancia.foto" (click)="adicionarFoto()"></ion-img>
+      </ion-thumbnail>
+      <ion-label>Foto</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" (click)="enviarVeiculo()" [disabled]="!isFormularioValido()">
+      <ion-icon name="cloud-upload-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
